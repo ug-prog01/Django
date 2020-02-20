@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FIRST APP</title>
+        <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+    </head>
+    <body>
+        <h1>CHIPOTLE!!</h1>
+        {{ insert_me }}
+        <!-- <img src="{% static "images/example.jpg" %}" alt="oops"> -->
+        <div class="django">
+            {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date</th>
+                </thead>
+
+                {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+                <p>NO ACCESS RECORDS FOUND</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
